@@ -25,12 +25,17 @@ You know that feeling — her birthday is next week and you're blanking on gift 
 
 **Requirements:** [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
 
+Open Claude Code and paste this:
+
+> Install superpartner: run `git clone https://github.com/coffeeandburger72/superpartner.git ~/.claude/skills/superpartner`
+
+Or run it yourself:
+
 ```bash
-# Install globally (available in all projects)
 git clone https://github.com/coffeeandburger72/superpartner.git ~/.claude/skills/superpartner
 ```
 
-That's it. One command.
+That's it. Then type `/superpartner` in any Claude Code session.
 
 ---
 

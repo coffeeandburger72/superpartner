@@ -25,12 +25,17 @@
 
 **需要：** [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
 
+打開 Claude Code，貼上這段：
+
+> Install superpartner: run `git clone https://github.com/coffeeandburger72/superpartner.git ~/.claude/skills/superpartner`
+
+或自己執行：
+
 ```bash
-# 全域安裝（所有專案皆可使用）
 git clone https://github.com/coffeeandburger72/superpartner.git ~/.claude/skills/superpartner
 ```
 
-一行指令搞定。
+完成。在任何 Claude Code 對話中輸入 `/superpartner` 即可使用。
 
 ---
 
