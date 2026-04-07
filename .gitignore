@@ -1,0 +1,15 @@
+# Partner profiles — generated content containing personal data
+partners/*/
+
+# Project instructions — may contain local context
+CLAUDE.md
+
+# Planning and spec docs — contain local context
+docs/
+
+# Claude Code local config
+.claude/
+
+# Chat exports — raw imported data
+*.zip
+*.csv
