@@ -1,22 +1,19 @@
 <div align="center">
 
-<h1><img src="https://img.shields.io/badge/superpartner-e11d48?style=for-the-badge&labelColor=e11d48" alt="superpartner" height="36"></h1>
+<h1><img src="docs/images/brand.svg" alt="superpartner" height="28"></h1>
 
-<picture>
-  <img alt="superpartner — drop a chat export, get a relationship cheat code" src="docs/images/banner-en.svg" width="100%">
-</picture>
+<img alt="superpartner banner" src="docs/images/banner-en.png" width="100%">
 
 <br>
 
-[![Claude Code Skill](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet?style=for-the-badge)](https://claude.ai/code)
+[![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-blueviolet?style=for-the-badge)](https://claude.ai/code)
 [![License: MIT](https://img.shields.io/badge/License-MIT-f5c846?style=for-the-badge)](LICENSE)
-
-**I finally nailed a gift that made them smile.**
-
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](#supported-platforms)
 [![WeChat](https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white)](#supported-platforms)
 [![LINE](https://img.shields.io/badge/LINE-06C755?style=for-the-badge&logo=line&logoColor=white)](#supported-platforms)
-[![100% Local & Private](https://img.shields.io/badge/100%25_Local_%26_Private-16a34a?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik04IDFhMyAzIDAgMCAwLTMgM3YySDRhMiAyIDAgMCAwLTIgMnY0YTIgMiAwIDAgMCAyIDJoOGEyIDIgMCAwIDAgMi0yVjhhMiAyIDAgMCAwLTItMmgtMVY0YTMgMyAwIDAgMC0zLTN6bTAgMmExIDEgMCAwIDEgMSAxdjJINlY0YTEgMSAwIDAgMSAxLTF6Ii8+PC9zdmc+&logoColor=white)](#privacy)
+[![100% Private](https://img.shields.io/badge/100%25_Private-16a34a?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik04IDFhMyAzIDAgMCAwLTMgM3YySDRhMiAyIDAgMCAwLTIgMnY0YTIgMiAwIDAgMCAyIDJoOGEyIDIgMCAwIDAgMi0yVjhhMiAyIDAgMCAwLTItMmgtMVY0YTMgMyAwIDAgMC0zLTN6bTAgMmExIDEgMCAwIDEgMSAxdjJINlY0YTEgMSAwIDAgMSAxLTF6Ii8+PC9zdmc+&logoColor=white)](#privacy)
+
+**I finally nailed a gift that made them smile.**
 
 Drop a chat export. Get a living profile of your partner — personality, interests, important dates, gift ideas, dating plans, and relationship insights. All evidence-based, all from your real conversations.
 

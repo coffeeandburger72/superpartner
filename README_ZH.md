@@ -1,22 +1,19 @@
 <div align="center">
 
-<h1><img src="https://img.shields.io/badge/superpartner-e11d48?style=for-the-badge&labelColor=e11d48" alt="superpartner" height="36"></h1>
+<h1><img src="docs/images/brand.svg" alt="superpartner" height="28"></h1>
 
-<picture>
-  <img alt="superpartner — 匯入聊天紀錄，獲得關係攻略" src="docs/images/banner-zh.svg" width="100%">
-</picture>
+<img alt="superpartner banner" src="docs/images/banner-zh.png" width="100%">
 
 <br>
 
-[![Claude Code Skill](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet?style=for-the-badge)](https://claude.ai/code)
+[![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-blueviolet?style=for-the-badge)](https://claude.ai/code)
 [![License: MIT](https://img.shields.io/badge/License-MIT-f5c846?style=for-the-badge)](LICENSE)
-
-**我終於送了一份對方真正想要的禮物。**
-
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](#支援平台)
 [![WeChat](https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white)](#支援平台)
 [![LINE](https://img.shields.io/badge/LINE-06C755?style=for-the-badge&logo=line&logoColor=white)](#支援平台)
 [![100% 本地運行](https://img.shields.io/badge/100%25_%E6%9C%AC%E5%9C%B0%E9%81%8B%E8%A1%8C-16a34a?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik04IDFhMyAzIDAgMCAwLTMgM3YySDRhMiAyIDAgMCAwLTIgMnY0YTIgMiAwIDAgMCAyIDJoOGEyIDIgMCAwIDAgMi0yVjhhMiAyIDAgMCAwLTItMmgtMVY0YTMgMyAwIDAgMC0zLTN6bTAgMmExIDEgMCAwIDEgMSAxdjJINlY0YTEgMSAwIDAgMSAxLTF6Ii8+PC9zdmc+&logoColor=white)](#隱私保護)
+
+**我終於送了一份對方真正想要的禮物。**
 
 匯入一份聊天紀錄，建立你伴侶的完整檔案 — 性格分析、興趣圖譜、重要日子、禮物推薦、約會企劃、關係洞察。所有建議都來自你們的真實對話，有根有據。
 
