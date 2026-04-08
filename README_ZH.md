@@ -1,8 +1,11 @@
 <div align="center">
 <img alt="superpartner banner" src="docs/images/banner-zh.png" width="100%">
+<br><br>
 <p>
   <img src="docs/images/brand.svg" alt="superpartner" height="28">
 </p>
+> *我終於送了一份對方真正想要的禮物。*
+
 <p>
   <a href="https://claude.ai/code"><img src="https://img.shields.io/badge/Claude_Code-Skill-7c3aed" alt="Claude Code Skill"></a>&nbsp;
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-f5c846" alt="MIT"></a>&nbsp;
@@ -11,8 +14,6 @@
   <a href="#支援平台"><img src="https://img.shields.io/badge/-LINE-06C755?logo=line&logoColor=white" alt="LINE"></a>&nbsp;
   <a href="#隱私保護"><img src="https://img.shields.io/badge/-100%25_%E6%9C%AC%E5%9C%B0%E9%81%8B%E8%A1%8C-16a34a?logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik04IDFhMyAzIDAgMCAwLTMgM3YySDRhMiAyIDAgMCAwLTIgMnY0YTIgMiAwIDAgMCAyIDJoOGEyIDIgMCAwIDAgMi0yVjhhMiAyIDAgMCAwLTItMmgtMVY0YTMgMyAwIDAgMC0zLTN6bTAgMmExIDEgMCAwIDEgMSAxdjJINlY0YTEgMSAwIDAgMSAxLTF6Ii8+PC9zdmc+" alt="100% 本地運行"></a>
 </p>
-
-**我終於送了一份對方真正想要的禮物。**
 
 匯入一份聊天紀錄，建立你伴侶的完整檔案 — 性格分析、興趣圖譜、重要日子、禮物推薦、約會企劃、關係洞察。所有建議都來自你們的真實對話，有根有據。
 
