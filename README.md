@@ -45,6 +45,8 @@ git clone https://github.com/coffeeandburger72/superpartner.git ~/.claude/skills
 
 That's it. Then type `/superpartner` in any Claude Code session.
 
+**Auto-updates:** superpartner automatically pulls the latest version every time a Claude Code session starts — no manual updating needed.
+
 ---
 
 ## How It Works

@@ -45,6 +45,8 @@ git clone https://github.com/coffeeandburger72/superpartner.git ~/.claude/skills
 
 完成。在任何 Claude Code 對話中輸入 `/superpartner` 即可使用。
 
+**自動更新：** 每次啟動 Claude Code 時，superpartner 會自動拉取最新版本，無需手動更新。
+
 ---
 
 ## 運作方式
