@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>superpartner — Terminal Demo</title>
+<link rel="stylesheet" href="poster-common.css">
+<style>
+  /* === Poster-01 overrides === */
+  .poster { padding: 36px 44px; }
+  .hero-text { margin-bottom: 8px; }
+  .poster-footer { margin-top: 32px; padding: 0; }
+  .cta-pill { padding: 16px 32px; font-size: 17px; }
+
+  /* === Terminal === */
+  .terminal {
+    flex: 1;
+    background: #1c1917;
+    border: 1px solid #292524;
+    border-radius: 12px;
+    margin-top: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+
+  .terminal-bar {
+    height: 40px;
+    background: #292524;
+    border-bottom: 1px solid #3a3633;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 8px;
+  }
+
+  .terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .terminal-dot.red { background: #ff5f57; }
+  .terminal-dot.yellow { background: #febc2e; }
+  .terminal-dot.green { background: #28c840; }
+
+  .terminal-title {
+    flex: 1;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #78716c;
+    margin-right: 52px;
+  }
+
+  .terminal-body {
+    padding: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* === Terminal text classes === */
+  .t-prompt { color: #4ade80; }
+  .t-command { color: #fafaf9; }
+  .t-claude { color: #fb7185; }
+  .t-dim { color: #78716c; }
+  .t-bright { color: #e7e5e4; }
+  .t-accent { color: #fda4af; }
+  .t-yellow { color: #fbbf24; }
+  .t-green { color: #4ade80; }
+  .t-blue { color: #7dd3fc; }
+
+  .t-line {
+    display: block;
+    min-height: 1.8em;
+  }
+
+  .t-indent { padding-left: 28px; }
+  .t-gap { height: 8px; }
+
+  /* === Mobile terminal === */
+  .mobile-terminal {
+    flex: 1;
+    margin-top: 20px;
+  }
+
+  .mobile-terminal .terminal {
+    margin-top: 0;
+    border-radius: 10px;
+  }
+
+  .mobile-terminal .terminal-body {
+    padding: 14px;
+    font-size: 11px;
+    line-height: 1.65;
+  }
+
+  .mobile-terminal .terminal-bar {
+    height: 32px;
+    padding: 0 12px;
+    gap: 6px;
+  }
+
+  .mobile-terminal .terminal-dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .mobile-terminal .terminal-title {
+    font-size: 10px;
+    margin-right: 38px;
+  }
+
+  .mobile-terminal .t-line { min-height: auto; }
+  .mobile-terminal .t-indent { padding-left: 14px; }
+  .mobile-terminal .t-gap { height: 4px; }
+
+  /* === Poster-01 mobile overrides === */
+  .poster-mobile { padding: 32px 24px; }
+  .poster-mobile .poster-footer { margin-top: 32px; padding: 0; gap: 16px; }
+
+  /* === Responsive === */
+  @media (max-width: 900px) {
+    .poster { padding: 22px 16px; }
+
+    .hero-text h1 {
+      font-size: 28px;
+    }
+
+    .terminal {
+      margin-top: 20px;
+    }
+
+    .terminal-body {
+      padding: 14px;
+      font-size: 11px;
+      line-height: 1.65;
+      overflow: auto;
+    }
+
+    .t-line {
+      min-height: auto;
+    }
+
+    .t-indent {
+      padding-left: 12px;
+    }
+
+    .poster-footer {
+      margin-top: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-controls">
+  <div class="control-groups">
+    <select class="page-nav" onchange="if(this.value)location.href=this.value">
+      <option value="00-github-banner.html">00 — GitHub Banner</option>
+      <option value="01-terminal.html" selected>01 — Terminal Demo</option>
+      <option value="02-before-after.html">02 — Before / After</option>
+      <option value="03-pattern-detection.html">03 — Pattern Detection</option>
+      <option value="04-one-line-fix.html">04 — One Line Fix</option>
+      <option value="05-sherlock.html">05 — Sherlock</option>
+      <option value="06-readme-feature-cards.html">06 — README Feature Cards</option>
+    </select>
+    <div class="lang-switch" role="group" aria-label="Language switch">
+      <button type="button" class="lang-btn active" data-lang-target="en" aria-pressed="true">English</button>
+      <button type="button" class="lang-btn" data-lang-target="zh-hant" aria-pressed="false">繁中</button>
+    </div>
+    <div class="view-switch" role="group" aria-label="Card type switch">
+      <button type="button" class="view-btn active" data-view-target="desktop" aria-pressed="true">Desktop Card</button>
+      <button type="button" class="view-btn" data-view-target="mobile" aria-pressed="false">Mobile Card</button>
+    </div>
+  </div>
+  <button type="button" class="download-btn" id="download-btn">Download Card</button>
+</div>
+
+<!-- English Version -->
+<div class="poster-shell active" data-lang="en" data-view="desktop">
+<div class="poster">
+  <div class="hero-text">
+    <div class="brand-line">
+      <a href="https://github.com/coffeeandburger72/superpartner" class="tag">superpartner</a>
+      <span class="skill-chip">Claude Code Skill</span>
+    </div>
+    <h1>Drop a chat export.<br>Get a relationship cheat code.</h1>
+  </div>
+
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="terminal-dot red"></div>
+      <div class="terminal-dot yellow"></div>
+      <div class="terminal-dot green"></div>
+      <div class="terminal-title">claude code</div>
+    </div>
+    <div class="terminal-body">
+      <span class="t-line"><span class="t-prompt">you </span><span class="t-command">/superpartner</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line"><span class="t-claude">claude </span><span class="t-bright">What's your partner's name or nickname?</span></span>
+      <span class="t-line"><span class="t-prompt">you </span><span class="t-command">Sarah</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line"><span class="t-claude">claude </span><span class="t-bright">How long have you been together?</span></span>
+      <span class="t-line"><span class="t-prompt">you </span><span class="t-command">Committed 1 year</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line"><span class="t-claude">claude </span><span class="t-bright">Drop your chat export file.</span></span>
+      <span class="t-line"><span class="t-prompt">you </span><span class="t-command">~/Downloads/WhatsApp Chat - Sarah.zip</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line"><span class="t-claude">claude </span><span class="t-dim">Found </span><span class="t-yellow">3,241</span><span class="t-dim"> messages from Jan to Apr on WhatsApp.</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line t-indent"><span class="t-dim">... analyzing personality across 6 dimensions ...</span></span>
+      <span class="t-line t-indent"><span class="t-dim">... mapping interests from messages and photos ...</span></span>
+      <span class="t-line t-indent"><span class="t-dim">... extracting dates and upcoming events ...</span></span>
+      <span class="t-line t-indent"><span class="t-dim">... building relationship dynamics profile ...</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line"><span class="t-green">&#10004;</span><span class="t-bright"> Done! Key findings:</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line t-indent"><span class="t-accent">Personality:</span> <span class="t-bright">INFP — genuine curiosity, vents then</span></span>
+      <span class="t-line t-indent"><span class="t-bright">pivots, shares discoveries with escalating enthusiasm</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line t-indent"><span class="t-accent">Attachment:</span> <span class="t-bright">Needs clear plans and proactive updates</span></span>
+      <span class="t-line t-indent"><span class="t-bright">to feel secure — "we'll see" kills her enthusiasm</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line t-indent"><span class="t-accent">Interests:</span> <span class="t-bright">Ramen, matcha, pottery, film photography</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line t-indent"><span class="t-accent">Next occasion:</span> <span class="t-yellow">Anniversary — Jul 8</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line t-indent"><span class="t-accent">Top gift:</span> <span class="t-bright">Aesop hand wash set — "i want it so</span></span>
+      <span class="t-line t-indent"><span class="t-bright">bad but the full set is too expensive </span><span class="t-yellow">😭</span><span class="t-bright">"</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line t-indent"><span class="t-accent">Key insight:</span> <span class="t-bright">Her #1 love language is Quality Time —</span></span>
+      <span class="t-line t-indent"><span class="t-bright">a planned afternoon &gt; an expensive gift.</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line"><span class="t-blue">&#9432;</span><span class="t-dim"> Use </span><span class="t-accent">/superpartner gifts sarah</span><span class="t-dim"> or </span><span class="t-accent">/superpartner ask sarah &lt;question&gt;</span></span>
+    </div>
+  </div>
+
+  <div class="poster-footer">
+    <a href="https://github.com/coffeeandburger72/superpartner" class="cta-pill">
+      <span class="prompt">$</span>
+      <span class="slash">/</span><span class="cmd">superpartner</span>
+      <span class="cursor"></span>
+    </a>
+    <div class="footer-meta">
+      <span class="footer-label">Claude Code Skill</span>
+      <span class="hint-group">
+        <a href="https://github.com/coffeeandburger72/superpartner" class="hint">github.com/coffeeandburger72/superpartner</a>
+      </span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 繁體中文版 -->
+<div class="poster-shell" data-lang="zh-hant" data-view="desktop">
+<div class="poster">
+  <div class="hero-text">
+    <div class="brand-line">
+      <a href="https://github.com/coffeeandburger72/superpartner" class="tag">superpartner</a>
+      <span class="skill-chip">Claude Code Skill</span>
+    </div>
+    <h1>匯入一份聊天紀錄。<br>獲得一份關係攻略。</h1>
+  </div>
+
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="terminal-dot red"></div>
+      <div class="terminal-dot yellow"></div>
+      <div class="terminal-dot green"></div>
+      <div class="terminal-title">claude code</div>
+    </div>
+    <div class="terminal-body">
+      <span class="t-line"><span class="t-prompt">你 </span><span class="t-command">/superpartner</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line"><span class="t-claude">claude </span><span class="t-bright">你伴侶叫什麼名字？</span></span>
+      <span class="t-line"><span class="t-prompt">你 </span><span class="t-command">莎莎</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line"><span class="t-claude">claude </span><span class="t-bright">你們在一起多久了？</span></span>
+      <span class="t-line"><span class="t-prompt">你 </span><span class="t-command">交往一年</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line"><span class="t-claude">claude </span><span class="t-bright">請提供聊天紀錄檔案。</span></span>
+      <span class="t-line"><span class="t-prompt">你 </span><span class="t-command">~/Downloads/WhatsApp Chat - 莎莎.zip</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line"><span class="t-claude">claude </span><span class="t-dim">找到 </span><span class="t-yellow">3,241</span><span class="t-dim"> 則訊息，1 月至 4 月，WhatsApp。</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line t-indent"><span class="t-dim">... 分析 6 個維度的性格特徵 ...</span></span>
+      <span class="t-line t-indent"><span class="t-dim">... 從訊息和相片中提取興趣 ...</span></span>
+      <span class="t-line t-indent"><span class="t-dim">... 擷取日期和即將到來的活動 ...</span></span>
+      <span class="t-line t-indent"><span class="t-dim">... 建立關係動態分析 ...</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line"><span class="t-green">&#10004;</span><span class="t-bright"> 完成！重點發現：</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line t-indent"><span class="t-accent">性格：</span><span class="t-bright">INFP — 真心好奇、先抒發再轉向舒壓、</span></span>
+      <span class="t-line t-indent"><span class="t-bright">發現新事物後熱情持續遞增</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line t-indent"><span class="t-accent">依附傾向：</span><span class="t-bright">需要明確計劃和主動回報才能安心</span></span>
+      <span class="t-line t-indent"><span class="t-bright">—「到時再說」會讓她的熱情瞬間消退</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line t-indent"><span class="t-accent">興趣：</span><span class="t-bright">拉麵、抹茶、陶藝、底片攝影</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line t-indent"><span class="t-accent">下個重要日子：</span><span class="t-yellow">交往週年 — 7 月 8 日</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line t-indent"><span class="t-accent">首選禮物：</span><span class="t-bright">Aesop 護手霜套裝 —「好想買但</span></span>
+      <span class="t-line t-indent"><span class="t-bright">整套太貴了 </span><span class="t-yellow">😭</span><span class="t-bright">」</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line t-indent"><span class="t-accent">核心洞察：</span><span class="t-bright">她的首要愛之語言是精心時刻 —</span></span>
+      <span class="t-line t-indent"><span class="t-bright">一個用心安排的下午勝過昂貴的禮物。</span></span>
+      <div class="t-gap"></div>
+      <span class="t-line"><span class="t-blue">&#9432;</span><span class="t-dim"> 輸入 </span><span class="t-accent">/superpartner gifts 莎莎</span><span class="t-dim"> 或 </span><span class="t-accent">/superpartner ask 莎莎 &lt;問題&gt;</span></span>
+    </div>
+  </div>
+
+  <div class="poster-footer">
+    <a href="https://github.com/coffeeandburger72/superpartner" class="cta-pill">
+      <span class="prompt">$</span>
+      <span class="slash">/</span><span class="cmd">superpartner</span>
+      <span class="cursor"></span>
+    </a>
+    <div class="footer-meta">
+      <span class="footer-label">Claude Code Skill</span>
+      <span class="hint-group">
+        <a href="https://github.com/coffeeandburger72/superpartner" class="hint">github.com/coffeeandburger72/superpartner</a>
+      </span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- English Mobile Card -->
+<div class="poster-shell" data-lang="en" data-view="mobile">
+<div class="poster poster-mobile">
+  <div class="hero-text">
+    <a href="https://github.com/coffeeandburger72/superpartner" class="tag">superpartner</a>
+    <h1>Drop a chat export.<br>Get a relationship cheat code.</h1>
+  </div>
+  <div class="mobile-terminal">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="terminal-dot red"></div>
+        <div class="terminal-dot yellow"></div>
+        <div class="terminal-dot green"></div>
+        <div class="terminal-title">claude code</div>
+      </div>
+      <div class="terminal-body">
+        <span class="t-line"><span class="t-prompt">you </span><span class="t-command">/superpartner</span></span>
+        <div class="t-gap"></div>
+        <span class="t-line"><span class="t-claude">claude </span><span class="t-dim">Found </span><span class="t-yellow">3,241</span><span class="t-dim"> messages.</span></span>
+        <div class="t-gap"></div>
+        <span class="t-line"><span class="t-green">&#10004;</span><span class="t-bright"> Done!</span></span>
+        <div class="t-gap"></div>
+        <span class="t-line t-indent"><span class="t-accent">Top gift:</span> <span class="t-bright">Aesop hand wash set</span></span>
+        <span class="t-line t-indent"><span class="t-accent">Next:</span> <span class="t-yellow">Anniversary — Jul 8</span></span>
+        <span class="t-line t-indent"><span class="t-accent">Insight:</span> <span class="t-bright">Quality Time &gt; gifts</span></span>
+      </div>
+    </div>
+  </div>
+  <div class="poster-footer">
+    <a href="https://github.com/coffeeandburger72/superpartner" class="cta-pill">
+      <span class="slash">/</span><span class="cmd">superpartner</span>
+    </a>
+    <div class="footer-meta">
+      <span class="footer-label">Claude Code Skill</span>
+      <a href="https://github.com/coffeeandburger72/superpartner" class="hint">coffeeandburger72/superpartner</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 繁中 Mobile Card -->
+<div class="poster-shell" data-lang="zh-hant" data-view="mobile">
+<div class="poster poster-mobile">
+  <div class="hero-text">
+    <a href="https://github.com/coffeeandburger72/superpartner" class="tag">superpartner</a>
+    <h1>匯入一份聊天紀錄。<br>獲得一份關係攻略。</h1>
+  </div>
+  <div class="mobile-terminal">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="terminal-dot red"></div>
+        <div class="terminal-dot yellow"></div>
+        <div class="terminal-dot green"></div>
+        <div class="terminal-title">claude code</div>
+      </div>
+      <div class="terminal-body">
+        <span class="t-line"><span class="t-prompt">你 </span><span class="t-command">/superpartner</span></span>
+        <div class="t-gap"></div>
+        <span class="t-line"><span class="t-claude">claude </span><span class="t-dim">找到 </span><span class="t-yellow">3,241</span><span class="t-dim"> 則訊息。</span></span>
+        <div class="t-gap"></div>
+        <span class="t-line"><span class="t-green">&#10004;</span><span class="t-bright"> 完成！</span></span>
+        <div class="t-gap"></div>
+        <span class="t-line t-indent"><span class="t-accent">首選禮物：</span><span class="t-bright">Aesop 護手霜套裝</span></span>
+        <span class="t-line t-indent"><span class="t-accent">下個日子：</span><span class="t-yellow">週年 — 7 月 8 日</span></span>
+        <span class="t-line t-indent"><span class="t-accent">核心洞察：</span><span class="t-bright">精心時刻 &gt; 昂貴禮物</span></span>
+      </div>
+    </div>
+  </div>
+  <div class="poster-footer">
+    <a href="https://github.com/coffeeandburger72/superpartner" class="cta-pill">
+      <span class="slash">/</span><span class="cmd">superpartner</span>
+    </a>
+    <div class="footer-meta">
+      <span class="footer-label">Claude Code Skill</span>
+      <a href="https://github.com/coffeeandburger72/superpartner" class="hint">coffeeandburger72/superpartner</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+  (function () {
+    const state = { language: 'en', view: 'desktop' };
+    const langButtons = Array.from(document.querySelectorAll('.lang-btn'));
+    const viewButtons = Array.from(document.querySelectorAll('.view-btn'));
+    const posterShells = Array.from(document.querySelectorAll('.poster-shell'));
+    const downloadButton = document.getElementById('download-btn');
+
+    function renderActiveCard() {
+      posterShells.forEach((shell) => {
+        const matchesLanguage = shell.dataset.lang === state.language;
+        const matchesView = shell.dataset.view === state.view;
+        shell.classList.toggle('active', matchesLanguage && matchesView);
+      });
+      langButtons.forEach((button) => {
+        const isActive = button.dataset.langTarget === state.language;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+      viewButtons.forEach((button) => {
+        const isActive = button.dataset.viewTarget === state.view;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+    }
+
+    langButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        state.language = button.dataset.langTarget;
+        renderActiveCard();
+      });
+    });
+
+    viewButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        state.view = button.dataset.viewTarget;
+        renderActiveCard();
+      });
+    });
+
+    renderActiveCard();
+
+    downloadButton.addEventListener('click', async () => {
+      const activeShell = document.querySelector('.poster-shell.active');
+      if (!activeShell || !window.html2canvas) {
+        return;
+      }
+
+      const originalLabel = downloadButton.textContent;
+      downloadButton.disabled = true;
+      downloadButton.textContent = 'Preparing...';
+
+      try {
+        const canvas = await window.html2canvas(activeShell, {
+          backgroundColor: getComputedStyle(document.body).backgroundColor,
+          useCORS: true,
+          scale: Math.min(3, window.devicePixelRatio || 2)
+        });
+        const link = document.createElement('a');
+        const fileLang = activeShell.dataset.lang === 'zh-hant' ? 'zh-hant' : 'en';
+        const fileView = activeShell.dataset.view === 'mobile' ? 'mobile' : 'desktop';
+        link.download = 'superpartner-terminal-demo-' + fileLang + '-' + fileView + '.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      } catch (error) {
+        console.error(error);
+        window.alert('Unable to download right now. Please try again.');
+      } finally {
+        downloadButton.textContent = originalLabel;
+        downloadButton.disabled = false;
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

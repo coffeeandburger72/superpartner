@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>superpartner — One Line Fix</title>
+<link rel="stylesheet" href="poster-common.css">
+<style>
+  /* --- Fix cards --- */
+  .fixes {
+    flex: 1;
+    padding: 28px 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .fix-card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  }
+
+  .fix-body {
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .fix-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .fix-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .fix-icon.bad { background: #fee2e2; color: #dc2626; }
+  .fix-icon.good { background: #dcfce7; color: #16a34a; }
+
+  .fix-message {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .fix-message.bad { color: #a8a29e; text-decoration: line-through; text-decoration-color: #d6d3d1; }
+  .fix-message.good { color: #1c1917; }
+
+  /* --- Result: warm rose-tinted bottom strip --- */
+  .fix-result {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 22px;
+    background: rgba(225, 29, 72, 0.04);
+    border-top: 1px solid rgba(225, 29, 72, 0.1);
+  }
+
+  .fix-result .label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #e11d48;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .fix-result .text {
+    font-size: 13px;
+    color: #44403c;
+    line-height: 1.4;
+  }
+
+  /* --- Mobile fix --- */
+  .mobile-fix {
+    flex: 1;
+    padding: 24px 22px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .mobile-fix .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #a8a29e;
+  }
+
+  .mobile-fix-card {
+    border: 1px solid #e7e5e4;
+    border-radius: 10px;
+    background: #fff;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .mobile-fix-bad {
+    color: #a8a29e;
+    font-size: 14px;
+    text-decoration: line-through;
+    text-decoration-color: #d6d3d1;
+  }
+
+  .mobile-fix-good {
+    color: #1c1917;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .mobile-fix-result {
+    background: rgba(225, 29, 72, 0.04);
+    border-top: 1px solid rgba(225, 29, 72, 0.1);
+    color: #44403c;
+    padding: 12px 16px;
+    font-size: 13px;
+    line-height: 1.45;
+    margin: 0 -16px -16px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .mobile-fix-result .label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #e11d48;
+    margin-bottom: 4px;
+  }
+
+  .poster-mobile .poster-footer { padding: 0 24px 32px; gap: 16px; }
+
+  @media (max-width: 900px) {
+    .fixes { padding: 16px; gap: 14px; }
+    .fix-body { padding: 14px 16px; gap: 10px; }
+    .fix-message { font-size: 14px; }
+    .fix-result { padding: 12px 16px; flex-direction: column; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-controls">
+  <div class="control-groups">
+    <select class="page-nav" onchange="if(this.value)location.href=this.value">
+      <option value="00-github-banner.html">00 — GitHub Banner</option>
+      <option value="01-terminal.html">01 — Terminal Demo</option>
+      <option value="02-before-after.html">02 — Before / After</option>
+      <option value="03-pattern-detection.html">03 — Pattern Detection</option>
+      <option value="04-one-line-fix.html" selected>04 — One Line Fix</option>
+      <option value="05-sherlock.html">05 — Sherlock</option>
+      <option value="06-readme-feature-cards.html">06 — README Feature Cards</option>
+    </select>
+    <div class="lang-switch" role="group" aria-label="Language switch">
+      <button type="button" class="lang-btn active" data-lang-target="en" aria-pressed="true">English</button>
+      <button type="button" class="lang-btn" data-lang-target="zh-hant" aria-pressed="false">繁中</button>
+    </div>
+    <div class="view-switch" role="group" aria-label="Card type switch">
+      <button type="button" class="view-btn active" data-view-target="desktop" aria-pressed="true">Desktop Card</button>
+      <button type="button" class="view-btn" data-view-target="mobile" aria-pressed="false">Mobile Card</button>
+    </div>
+  </div>
+  <button type="button" class="download-btn" id="download-btn">Download Card</button>
+</div>
+
+<!-- English Desktop -->
+<div class="poster-shell active" data-lang="en" data-view="desktop">
+<div class="poster">
+  <div class="poster-header">
+    <div class="brand-line">
+      <a href="https://github.com/coffeeandburger72/superpartner" class="tag">superpartner</a>
+      <span class="mode-chip guide-mode">Guide Mode</span>
+    </div>
+    <h1>Small changes. Big impact.</h1>
+    <p class="sub">All from your real conversations.</p>
+  </div>
+
+  <div class="fixes">
+    <div class="fix-card">
+      <div class="fix-body">
+        <div class="fix-row">
+          <div class="fix-icon bad">&times;</div>
+          <span class="fix-message bad">3 hours of silence</span>
+        </div>
+        <div class="fix-row">
+          <div class="fix-icon good">&check;</div>
+          <span class="fix-message good">"at the gym, will reply later"</span>
+        </div>
+      </div>
+      <div class="fix-result">
+        <span class="label">Result</span>
+        <span class="text">Prevented: 2-hour anxiety check-in cycle — "you busy?" &rarr; "not sure if you fell asleep"</span>
+      </div>
+    </div>
+
+    <div class="fix-card">
+      <div class="fix-body">
+        <div class="fix-row">
+          <div class="fix-icon bad">&times;</div>
+          <span class="fix-message bad">"Saturday, we'll see"</span>
+        </div>
+        <div class="fix-row">
+          <div class="fix-icon good">&check;</div>
+          <span class="fix-message good">"Saturday 7pm, ramen in Causeway Bay"</span>
+        </div>
+      </div>
+      <div class="fix-result">
+        <span class="label">Result</span>
+        <span class="text">Reply went from "that's fine" to "so excited!! i'm thinking of wearing that new dress &#129321;"</span>
+      </div>
+    </div>
+
+    <div class="fix-card">
+      <div class="fix-body">
+        <div class="fix-row">
+          <div class="fix-icon bad">&times;</div>
+          <span class="fix-message bad">"looks good"</span>
+        </div>
+        <div class="fix-row">
+          <div class="fix-icon good">&check;</div>
+          <span class="fix-message good">"the curve on that logo is so smooth, you must've spent ages on it"</span>
+        </div>
+      </div>
+      <div class="fix-result">
+        <span class="label">Result</span>
+        <span class="text">"you really think so? &#129395;" — her #2 love language activated. She needs to know you SEE her work.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="poster-footer">
+    <a href="https://github.com/coffeeandburger72/superpartner" class="cta-pill">
+      <span class="prompt">$</span>
+      <span class="slash">/</span><span class="cmd">superpartner guide </span><span class="arg">sarah</span>
+      <span class="cursor"></span>
+    </a>
+    <div class="footer-meta">
+      <span class="footer-label">Claude Code Skill</span>
+      <a href="https://github.com/coffeeandburger72/superpartner" class="hint">github.com/coffeeandburger72/superpartner</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 繁中 Desktop -->
+<div class="poster-shell" data-lang="zh-hant" data-view="desktop">
+<div class="poster">
+  <div class="poster-header">
+    <div class="brand-line">
+      <a href="https://github.com/coffeeandburger72/superpartner" class="tag">superpartner</a>
+      <span class="mode-chip guide-mode">Guide Mode</span>
+    </div>
+    <h1>微小的改變，巨大的影響。</h1>
+    <p class="sub">全部來自你們的真實對話。</p>
+  </div>
+
+  <div class="fixes">
+    <div class="fix-card">
+      <div class="fix-body">
+        <div class="fix-row">
+          <div class="fix-icon bad">&times;</div>
+          <span class="fix-message bad">沉默了 3 小時</span>
+        </div>
+        <div class="fix-row">
+          <div class="fix-icon good">&check;</div>
+          <span class="fix-message good">「在健身，等下回你」</span>
+        </div>
+      </div>
+      <div class="fix-result">
+        <span class="label">效果</span>
+        <span class="text">阻止了：2 小時的焦慮確認循環 —「你在忙嗎？」&rarr;「不知道你是不是睡了」</span>
+      </div>
+    </div>
+
+    <div class="fix-card">
+      <div class="fix-body">
+        <div class="fix-row">
+          <div class="fix-icon bad">&times;</div>
+          <span class="fix-message bad">「週六再說吧」</span>
+        </div>
+        <div class="fix-row">
+          <div class="fix-icon good">&check;</div>
+          <span class="fix-message good">「週六晚上 7 點，銅鑼灣吃拉麵」</span>
+        </div>
+      </div>
+      <div class="fix-result">
+        <span class="label">效果</span>
+        <span class="text">回覆從「好吧」變成「好期待！！想穿那件新裙子 &#129321;」</span>
+      </div>
+    </div>
+
+    <div class="fix-card">
+      <div class="fix-body">
+        <div class="fix-row">
+          <div class="fix-icon bad">&times;</div>
+          <span class="fix-message bad">「不錯」</span>
+        </div>
+        <div class="fix-row">
+          <div class="fix-icon good">&check;</div>
+          <span class="fix-message good">「那個 logo 的曲線好流暢，你一定花了很多時間調整」</span>
+        </div>
+      </div>
+      <div class="fix-result">
+        <span class="label">效果</span>
+        <span class="text">「你真的覺得好看嗎？&#129395;」— 她的第二愛之語言被觸發。她需要知道你真正看見了她的作品。</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="poster-footer">
+    <a href="https://github.com/coffeeandburger72/superpartner" class="cta-pill">
+      <span class="prompt">$</span>
+      <span class="slash">/</span><span class="cmd">superpartner guide </span><span class="arg">莎莎</span>
+      <span class="cursor"></span>
+    </a>
+    <div class="footer-meta">
+      <span class="footer-label">Claude Code Skill</span>
+      <a href="https://github.com/coffeeandburger72/superpartner" class="hint">github.com/coffeeandburger72/superpartner</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- English Mobile -->
+<div class="poster-shell" data-lang="en" data-view="mobile">
+<div class="poster poster-mobile">
+  <div class="poster-header">
+    <div class="brand-line">
+      <a href="https://github.com/coffeeandburger72/superpartner" class="tag">superpartner</a>
+      <span class="mode-chip guide-mode">Guide Mode</span>
+    </div>
+    <h1>Small changes. Big impact.</h1>
+    <p class="sub">All from your real conversations.</p>
+  </div>
+  <div class="mobile-fix">
+    <span class="label">Best Quick Fix</span>
+    <div class="mobile-fix-card">
+      <span class="mobile-fix-bad">3 hours of silence</span>
+      <span class="mobile-fix-good">"at the gym, will reply later"</span>
+      <div class="mobile-fix-result"><span class="label">Result</span> Stops the 2-hour anxiety check-in loop before it starts.</div>
+    </div>
+  </div>
+  <div class="poster-footer">
+    <a href="https://github.com/coffeeandburger72/superpartner" class="cta-pill">
+      <span class="slash">/</span><span class="cmd">superpartner guide </span><span class="arg">sarah</span>
+    </a>
+    <div class="footer-meta">
+      <span class="footer-label">Claude Code Skill</span>
+      <a href="https://github.com/coffeeandburger72/superpartner" class="hint">coffeeandburger72/superpartner</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 繁中 Mobile -->
+<div class="poster-shell" data-lang="zh-hant" data-view="mobile">
+<div class="poster poster-mobile">
+  <div class="poster-header">
+    <div class="brand-line">
+      <a href="https://github.com/coffeeandburger72/superpartner" class="tag">superpartner</a>
+      <span class="mode-chip guide-mode">Guide Mode</span>
+    </div>
+    <h1>微小的改變，巨大的影響。</h1>
+    <p class="sub">全部來自你們的真實對話。</p>
+  </div>
+  <div class="mobile-fix">
+    <span class="label">最佳快速修正</span>
+    <div class="mobile-fix-card">
+      <span class="mobile-fix-bad">沉默了 3 小時</span>
+      <span class="mobile-fix-good">「在健身，等下回你」</span>
+      <div class="mobile-fix-result"><span class="label">效果</span> 在焦慮確認循環開始前就先中止。</div>
+    </div>
+  </div>
+  <div class="poster-footer">
+    <a href="https://github.com/coffeeandburger72/superpartner" class="cta-pill">
+      <span class="slash">/</span><span class="cmd">superpartner guide </span><span class="arg">莎莎</span>
+    </a>
+    <div class="footer-meta">
+      <span class="footer-label">Claude Code Skill</span>
+      <a href="https://github.com/coffeeandburger72/superpartner" class="hint">coffeeandburger72/superpartner</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+  (function () {
+    const state = { language: 'en', view: 'desktop' };
+    const langButtons = Array.from(document.querySelectorAll('.lang-btn'));
+    const viewButtons = Array.from(document.querySelectorAll('.view-btn'));
+    const posterShells = Array.from(document.querySelectorAll('.poster-shell'));
+    const downloadButton = document.getElementById('download-btn');
+
+    function renderActiveCard() {
+      posterShells.forEach((shell) => {
+        shell.classList.toggle('active', shell.dataset.lang === state.language && shell.dataset.view === state.view);
+      });
+      langButtons.forEach((b) => { b.classList.toggle('active', b.dataset.langTarget === state.language); b.setAttribute('aria-pressed', b.dataset.langTarget === state.language); });
+      viewButtons.forEach((b) => { b.classList.toggle('active', b.dataset.viewTarget === state.view); b.setAttribute('aria-pressed', b.dataset.viewTarget === state.view); });
+    }
+
+    langButtons.forEach((b) => b.addEventListener('click', () => { state.language = b.dataset.langTarget; renderActiveCard(); }));
+    viewButtons.forEach((b) => b.addEventListener('click', () => { state.view = b.dataset.viewTarget; renderActiveCard(); }));
+    renderActiveCard();
+
+    downloadButton.addEventListener('click', async () => {
+      const activeShell = document.querySelector('.poster-shell.active');
+      if (!activeShell || !window.html2canvas) return;
+      const orig = downloadButton.textContent;
+      downloadButton.disabled = true;
+      downloadButton.textContent = 'Preparing...';
+      try {
+        const canvas = await window.html2canvas(activeShell, { backgroundColor: getComputedStyle(document.body).backgroundColor, useCORS: true, scale: Math.min(3, window.devicePixelRatio || 2) });
+        const link = document.createElement('a');
+        link.download = 'superpartner-one-line-fix-' + activeShell.dataset.lang + '-' + activeShell.dataset.view + '.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      } catch (e) { console.error(e); alert('Unable to download right now.'); }
+      finally { downloadButton.textContent = orig; downloadButton.disabled = false; }
+    });
+  })();
+</script>
+
+</body>
+</html>

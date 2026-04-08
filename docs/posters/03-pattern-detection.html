@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>superpartner — Pattern Detection</title>
+<link rel="stylesheet" href="poster-common.css">
+<style>
+  /* --- Pattern cards (no inner padding - edge to edge) --- */
+  .patterns {
+    flex: 1;
+    padding: 28px 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .pattern-card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    border-left: 3px solid #e11d48;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  }
+
+  .pattern-card .scenario {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px 22px 16px;
+  }
+
+  .chat-bubble {
+    display: inline-flex;
+    padding: 9px 14px;
+    border-radius: 16px;
+    font-size: 14px;
+    max-width: 70%;
+    line-height: 1.4;
+  }
+
+  .chat-bubble.sent {
+    background: #2563eb;
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+
+  .chat-bubble.received {
+    background: #f5f5f4;
+    color: #44403c;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+
+  .chat-bubble.received.faded {
+    color: #a8a29e;
+    background: #fafaf9;
+  }
+
+  .chat-time {
+    font-size: 10px;
+    color: #a8a29e;
+    align-self: flex-end;
+    margin-top: -2px;
+  }
+
+  .chat-time.left { align-self: flex-start; }
+
+  /* --- Insight: warm rose-tinted bottom strip --- */
+  .insight {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 22px;
+    background: rgba(225, 29, 72, 0.04);
+    border-top: 1px solid rgba(225, 29, 72, 0.1);
+  }
+
+  .insight .label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #e11d48;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .insight .text {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #44403c;
+  }
+
+  .insight .text strong {
+    color: #e11d48;
+    font-weight: 600;
+  }
+
+  .mobile-focus {
+    flex: 1;
+    padding: 24px 22px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .mobile-focus .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #a8a29e;
+  }
+
+  .mobile-chat {
+    border: 1px solid #e7e5e4;
+    border-radius: 10px;
+    background: #fff;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mobile-chat .line {
+    display: inline-block;
+    max-width: 88%;
+    padding: 9px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .mobile-chat .line.right {
+    align-self: flex-end;
+    background: #2563eb;
+    color: #fff;
+  }
+
+  .mobile-chat .line.left {
+    align-self: flex-start;
+    background: #f5f5f4;
+    color: #44403c;
+  }
+
+  .mobile-insight {
+    background: rgba(225, 29, 72, 0.04);
+    border-top: 1px solid rgba(225, 29, 72, 0.1);
+    color: #44403c;
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.45;
+    margin: 0 -14px -14px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .mobile-insight .label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #e11d48;
+    margin-bottom: 4px;
+  }
+
+  .poster-mobile .poster-footer { padding: 0 24px 32px; gap: 16px; }
+
+  @media (max-width: 900px) {
+    .patterns { padding: 16px; gap: 14px; }
+    .pattern-card .scenario { padding: 14px 16px 12px; }
+    .chat-bubble { max-width: 100%; font-size: 13px; }
+    .insight { padding: 12px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-controls">
+  <div class="control-groups">
+    <select class="page-nav" onchange="if(this.value)location.href=this.value">
+      <option value="00-github-banner.html">00 — GitHub Banner</option>
+      <option value="01-terminal.html">01 — Terminal Demo</option>
+      <option value="02-before-after.html">02 — Before / After</option>
+      <option value="03-pattern-detection.html" selected>03 — Pattern Detection</option>
+      <option value="04-one-line-fix.html">04 — One Line Fix</option>
+      <option value="05-sherlock.html">05 — Sherlock</option>
+      <option value="06-readme-feature-cards.html">06 — README Feature Cards</option>
+    </select>
+    <div class="lang-switch" role="group" aria-label="Language switch">
+      <button type="button" class="lang-btn active" data-lang-target="en" aria-pressed="true">English</button>
+      <button type="button" class="lang-btn" data-lang-target="zh-hant" aria-pressed="false">繁中</button>
+    </div>
+    <div class="view-switch" role="group" aria-label="Card type switch">
+      <button type="button" class="view-btn active" data-view-target="desktop" aria-pressed="true">Desktop Card</button>
+      <button type="button" class="view-btn" data-view-target="mobile" aria-pressed="false">Mobile Card</button>
+    </div>
+  </div>
+  <button type="button" class="download-btn" id="download-btn">Download Card</button>
+</div>
+
+<!-- English Desktop -->
+<div class="poster-shell active" data-lang="en" data-view="desktop">
+<div class="poster">
+  <div class="poster-header">
+    <div class="brand-line">
+      <a href="https://github.com/coffeeandburger72/superpartner" class="tag">superpartner</a>
+      <span class="mode-chip guide-mode">Guide Mode</span>
+    </div>
+    <h1>She won't tell you she's upset.<br>But her messages will.</h1>
+    <p class="sub">3,241 messages. Patterns you never noticed.</p>
+  </div>
+
+  <div class="patterns">
+    <div class="pattern-card">
+      <div class="scenario">
+        <div class="chat-bubble sent">we'll see, let's decide later</div>
+        <div class="chat-time">7:12 PM</div>
+        <div class="chat-bubble received faded">that's fine</div>
+        <div class="chat-time left">7:14 PM</div>
+      </div>
+      <div class="insight">
+        <span class="label">Pattern</span>
+        <span class="text">Vague plans trigger her anxious side. Reply dropped from enthusiastic to one-word. Fix: confirm with details — time, place, what to expect.</span>
+      </div>
+    </div>
+
+    <div class="pattern-card">
+      <div class="scenario">
+        <div class="chat-bubble received">you busy?</div>
+        <div class="chat-time left">9:30 PM</div>
+        <div class="chat-bubble received faded">not sure if you fell asleep</div>
+        <div class="chat-time left">11:12 PM</div>
+      </div>
+      <div class="insight">
+        <span class="label">Pattern</span>
+        <span class="text">2+ hours of silence during evenings triggers a check-in cycle. Fix: "at the gym, will reply later" — one line prevents the whole loop.</span>
+      </div>
+    </div>
+
+    <div class="pattern-card">
+      <div class="scenario">
+        <div class="chat-bubble received">home! today was so fun &#129395; thank you</div>
+        <div class="chat-time left">10:48 PM</div>
+        <div class="chat-bubble sent" style="background:#d6d3d1; color:#78716c;">&#10003;&#10003; read</div>
+        <div class="chat-time">10:48 PM</div>
+      </div>
+      <div class="insight">
+        <span class="label">Pattern</span>
+        <span class="text">She sends this within 30 min of every date — without exception. A warm reply = safe landing. Silence = anxiety spiral.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="poster-footer">
+    <a href="https://github.com/coffeeandburger72/superpartner" class="cta-pill">
+      <span class="prompt">$</span>
+      <span class="slash">/</span><span class="cmd">superpartner guide </span><span class="arg">sarah</span>
+      <span class="cursor"></span>
+    </a>
+    <div class="footer-meta">
+      <span class="footer-label">Claude Code Skill</span>
+      <a href="https://github.com/coffeeandburger72/superpartner" class="hint">github.com/coffeeandburger72/superpartner</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 繁中 Desktop -->
+<div class="poster-shell" data-lang="zh-hant" data-view="desktop">
+<div class="poster">
+  <div class="poster-header">
+    <div class="brand-line">
+      <a href="https://github.com/coffeeandburger72/superpartner" class="tag">superpartner</a>
+      <span class="mode-chip guide-mode">Guide Mode</span>
+    </div>
+    <h1>她不會告訴你她不開心。<br>但她的訊息會。</h1>
+    <p class="sub">3,241 則訊息。你從未注意到的模式。</p>
+  </div>
+
+  <div class="patterns">
+    <div class="pattern-card">
+      <div class="scenario">
+        <div class="chat-bubble sent">到時再說吧</div>
+        <div class="chat-time">7:12 PM</div>
+        <div class="chat-bubble received faded">好吧</div>
+        <div class="chat-time left">7:14 PM</div>
+      </div>
+      <div class="insight">
+        <span class="label">模式</span>
+        <span class="text">模糊的計劃觸發了她的焦慮。回覆從熱情變成一個字。解法：確認細節 — 時間、地點、要做什麼。</span>
+      </div>
+    </div>
+
+    <div class="pattern-card">
+      <div class="scenario">
+        <div class="chat-bubble received">你在忙嗎？</div>
+        <div class="chat-time left">9:30 PM</div>
+        <div class="chat-bubble received faded">不知道你是不是睡了</div>
+        <div class="chat-time left">11:12 PM</div>
+      </div>
+      <div class="insight">
+        <span class="label">模式</span>
+        <span class="text">晚間超過 2 小時未回覆會觸發確認循環。解法：「在健身，等下回你」— 一句話就能阻止整個循環。</span>
+      </div>
+    </div>
+
+    <div class="pattern-card">
+      <div class="scenario">
+        <div class="chat-bubble received">到家了！今天好開心 &#129395; 謝謝你</div>
+        <div class="chat-time left">10:48 PM</div>
+        <div class="chat-bubble sent" style="background:#d6d3d1; color:#78716c;">&#10003;&#10003; 已讀</div>
+        <div class="chat-time">10:48 PM</div>
+      </div>
+      <div class="insight">
+        <span class="label">模式</span>
+        <span class="text">每次約會後 30 分鐘內她一定會發這則訊息。溫暖的回覆 = 安全著陸。沉默 = 焦慮螺旋。</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="poster-footer">
+    <a href="https://github.com/coffeeandburger72/superpartner" class="cta-pill">
+      <span class="prompt">$</span>
+      <span class="slash">/</span><span class="cmd">superpartner guide </span><span class="arg">莎莎</span>
+      <span class="cursor"></span>
+    </a>
+    <div class="footer-meta">
+      <span class="footer-label">Claude Code Skill</span>
+      <a href="https://github.com/coffeeandburger72/superpartner" class="hint">github.com/coffeeandburger72/superpartner</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- English Mobile -->
+<div class="poster-shell" data-lang="en" data-view="mobile">
+<div class="poster poster-mobile">
+  <div class="poster-header">
+    <div class="brand-line">
+      <a href="https://github.com/coffeeandburger72/superpartner" class="tag">superpartner</a>
+      <span class="mode-chip guide-mode">Guide Mode</span>
+    </div>
+    <h1>She won't tell you she's upset.<br>But her messages will.</h1>
+    <p class="sub">3,241 messages. Patterns you never noticed.</p>
+  </div>
+  <div class="mobile-focus">
+    <span class="label">Highest Impact Pattern</span>
+    <div class="mobile-chat">
+      <span class="line right">we'll see, let's decide later</span>
+      <span class="line left">that's fine</span>
+      <div class="mobile-insight"><span class="label">Pattern</span> Vague plans lower her energy immediately. Replace with exact time + place in one line.</div>
+    </div>
+  </div>
+  <div class="poster-footer">
+    <a href="https://github.com/coffeeandburger72/superpartner" class="cta-pill">
+      <span class="slash">/</span><span class="cmd">superpartner guide </span><span class="arg">sarah</span>
+    </a>
+    <div class="footer-meta">
+      <span class="footer-label">Claude Code Skill</span>
+      <a href="https://github.com/coffeeandburger72/superpartner" class="hint">coffeeandburger72/superpartner</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 繁中 Mobile -->
+<div class="poster-shell" data-lang="zh-hant" data-view="mobile">
+<div class="poster poster-mobile">
+  <div class="poster-header">
+    <div class="brand-line">
+      <a href="https://github.com/coffeeandburger72/superpartner" class="tag">superpartner</a>
+      <span class="mode-chip guide-mode">Guide Mode</span>
+    </div>
+    <h1>她不會告訴你她不開心。<br>但她的訊息會。</h1>
+    <p class="sub">3,241 則訊息。你從未注意到的模式。</p>
+  </div>
+  <div class="mobile-focus">
+    <span class="label">最高影響模式</span>
+    <div class="mobile-chat">
+      <span class="line right">到時再說吧</span>
+      <span class="line left">好吧</span>
+      <div class="mobile-insight"><span class="label">模式</span> 模糊安排會讓她瞬間降溫。直接給時間和地點，回覆品質會立刻改善。</div>
+    </div>
+  </div>
+  <div class="poster-footer">
+    <a href="https://github.com/coffeeandburger72/superpartner" class="cta-pill">
+      <span class="slash">/</span><span class="cmd">superpartner guide </span><span class="arg">莎莎</span>
+    </a>
+    <div class="footer-meta">
+      <span class="footer-label">Claude Code Skill</span>
+      <a href="https://github.com/coffeeandburger72/superpartner" class="hint">coffeeandburger72/superpartner</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+  (function () {
+    const state = { language: 'en', view: 'desktop' };
+    const langButtons = Array.from(document.querySelectorAll('.lang-btn'));
+    const viewButtons = Array.from(document.querySelectorAll('.view-btn'));
+    const posterShells = Array.from(document.querySelectorAll('.poster-shell'));
+    const downloadButton = document.getElementById('download-btn');
+
+    function renderActiveCard() {
+      posterShells.forEach((shell) => {
+        shell.classList.toggle('active', shell.dataset.lang === state.language && shell.dataset.view === state.view);
+      });
+      langButtons.forEach((b) => { b.classList.toggle('active', b.dataset.langTarget === state.language); b.setAttribute('aria-pressed', b.dataset.langTarget === state.language); });
+      viewButtons.forEach((b) => { b.classList.toggle('active', b.dataset.viewTarget === state.view); b.setAttribute('aria-pressed', b.dataset.viewTarget === state.view); });
+    }
+
+    langButtons.forEach((b) => b.addEventListener('click', () => { state.language = b.dataset.langTarget; renderActiveCard(); }));
+    viewButtons.forEach((b) => b.addEventListener('click', () => { state.view = b.dataset.viewTarget; renderActiveCard(); }));
+    renderActiveCard();
+
+    downloadButton.addEventListener('click', async () => {
+      const activeShell = document.querySelector('.poster-shell.active');
+      if (!activeShell || !window.html2canvas) return;
+      const orig = downloadButton.textContent;
+      downloadButton.disabled = true;
+      downloadButton.textContent = 'Preparing...';
+      try {
+        const canvas = await window.html2canvas(activeShell, { backgroundColor: getComputedStyle(document.body).backgroundColor, useCORS: true, scale: Math.min(3, window.devicePixelRatio || 2) });
+        const link = document.createElement('a');
+        link.download = 'superpartner-pattern-detection-' + activeShell.dataset.lang + '-' + activeShell.dataset.view + '.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      } catch (e) { console.error(e); alert('Unable to download right now.'); }
+      finally { downloadButton.textContent = orig; downloadButton.disabled = false; }
+    });
+  })();
+</script>
+
+</body>
+</html>
