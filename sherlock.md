@@ -6,13 +6,11 @@ This file instructs Claude how to run an interactive sherlock session. When SKIL
 
 ## Input
 
-You may have the following data in context:
+You have the following data in context:
 
-- **Partner profile (optional)** — if invoked with a partner name, `persona.md` and `relationship_guide.md` from `partners/<slug>/` are loaded. These provide attachment orientation, communication style, love languages, conflict patterns, and relationship health indicators.
+- **Partner profile** — `persona.md` and `relationship_guide.md` from `partners/<slug>/` are loaded. These provide attachment orientation, communication style, love languages, conflict patterns, and relationship health indicators. Use this data to calibrate all analysis (see Profile-Aware Calibration below).
 - **User's situation description** — free text describing what they've observed
 - **Chat snippets (optional)** — pasted conversation fragments the user provides as evidence
-
-If no partner profile is loaded, proceed without baseline calibration — analyze purely from what the user describes.
 
 ---
 

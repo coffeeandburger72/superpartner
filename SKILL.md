@@ -49,8 +49,7 @@ Parse the argument string passed to this skill. The first token is the subcomman
 | `ask <name> <question...>` | Run **Ask Flow** |
 | `list` | Run **List Flow** |
 | `delete <name>` | Run **Delete Flow** |
-| `sherlock` | Run **Sherlock Flow** (standalone) |
-| `sherlock <name>` | Run **Sherlock Flow** (profile-aware) |
+| `sherlock <name>` | Run **Sherlock Flow** |
 
 ### Resolving `<name>`
 
@@ -353,17 +352,13 @@ Triggered by: `delete <name>`
 
 ## Sherlock Flow
 
-Triggered by: `sherlock` (standalone) or `sherlock <name>` (profile-aware)
+Triggered by: `sherlock <name>`
 
 An interactive behavioral analysis session that helps the user examine suspicious or confusing relationship patterns.
 
 1. Read `sherlock.md` from the skill directory for full session instructions
-2. **If `<name>` provided:**
-   - Resolve `<name>` to an existing partner directory (see "Resolving `<name>`" above)
-   - Read `partners/<name>/persona.md` and `partners/<name>/relationship_guide.md` into context
-   - Pass these to the sherlock session as baseline calibration data
-3. **If no name provided:**
-   - Proceed without partner context — analysis is based purely on the user's descriptions
+2. Resolve `<name>` to an existing partner directory (see "Resolving `<name>`" above)
+3. Read `partners/<name>/persona.md` and `partners/<name>/relationship_guide.md` into context for baseline calibration
 4. Follow the session flow in `sherlock.md`: intake → analysis → session loop → session end
 
 ---

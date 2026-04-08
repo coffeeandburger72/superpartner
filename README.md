@@ -17,7 +17,7 @@
 
 Drop a chat export. Get a living profile of your partner — personality, interests, important dates, gift ideas, dating plans, and relationship insights. All evidence-based, all from your real conversations.
 
-[Install](#install) · [How It Works](#how-it-works) · [Use Cases](#use-cases) · [Commands](#commands) · [Project Structure](#project-structure) · [Privacy](#privacy) · [**繁體中文**](README_ZH.md)
+[Install](#install) · [How It Works](#how-it-works) · [Modes](#modes) · [Use Cases](#use-cases) · [Commands](#commands) · [Project Structure](#project-structure) · [Privacy](#privacy) · [**繁體中文**](README_ZH.md)
 
 </div>
 
@@ -100,6 +100,22 @@ Claude:  Found 3,241 messages from Jan 1 to Apr 7 between you and Sarah
 
 ---
 
+## Modes
+
+### Gift Mode
+
+<img alt="Gift Mode card showing evidence-backed gift recommendations" src="docs/images/readme-gift-mode-en.png" width="100%">
+
+Turn vague gift advice into evidence-backed ideas grounded in what they actually said.
+
+### Sherlock Mode `beta`
+
+<img alt="Sherlock Mode card showing relationship red flag analysis" src="docs/images/readme-sherlock-mode-en.png" width="100%">
+
+Sort worrying signals into facts, possibilities, a red flag score, and one calm next step.
+
+---
+
 ## Use Cases
 
 ### "Their birthday is in 2 weeks and I have no idea what to get"
@@ -129,6 +145,16 @@ Generates date ideas tailored to what they enjoy, your relationship stage, and y
 ```
 
 Your relationship guide — communication patterns, conflict resolution style, emotional needs, and how to navigate difficult conversations based on how they actually communicate. No textbook advice, just patterns from your real dynamic.
+
+---
+
+### "Something feels off and I can't tell if I'm overthinking it" `beta`
+
+```
+/superpartner sherlock sarah
+```
+
+Describe what you've observed — changed behavior, a confusing conversation, a gut feeling. Sherlock helps you organize the facts, ranks possibilities from most innocent to most concerning, and gives you a red flag score that updates as you add more context. No verdicts, no panic — just clarity and a calm next step.
 
 ---
 
@@ -169,6 +195,7 @@ After building a profile, superpartner offers to set up reminders for upcoming o
 | `/superpartner dates <name>` | Regenerate dating plans |
 | `/superpartner guide <name>` | Regenerate relationship guide |
 | `/superpartner ask <name> <question>` | Ask anything about your partner |
+| `/superpartner sherlock <name>` | **`beta`** Relationship red flag analysis — detect deception, infidelity, scam patterns |
 | `/superpartner delete <name>` | Remove a profile completely |
 
 ---
@@ -216,6 +243,7 @@ superpartner/
 │   └── relationship_guide_builder.md#   → relationship_guide.md
 │
 ├── merger.md                        # Incremental update logic for new exports
+├── sherlock.md                      # Sherlock Mode (beta) relationship red flag analysis
 │
 ├── partners/                        # Generated profiles (gitignored)
 │   └── <slug>/                      #   One folder per partner
