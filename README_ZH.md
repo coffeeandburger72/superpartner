@@ -247,7 +247,8 @@ superpartner/
 │   └── settings.json                # 自動更新 hook — 每次啟動時拉取最新版本
 │
 └── docs/
-    └── images/                      # README 用的橫幅圖片
+    ├── images/                      # README 用的橫幅與功能卡片圖片
+    └── posters/                     # HTML 海報模板與共用 CSS
 ```
 
 ### 流水線運作方式

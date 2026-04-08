@@ -249,7 +249,8 @@ superpartner/
 │   └── settings.json                # Auto-update hook — pulls latest on session start
 │
 └── docs/
-    └── images/                      # Banner images for README
+    ├── images/                      # Banner & feature card images for README
+    └── posters/                     # HTML poster mockups & shared CSS
 ```
 
 ### How the pipeline works
