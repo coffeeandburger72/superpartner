@@ -12,7 +12,9 @@ Claude Code skill that builds partner profiles from chat exports (WhatsApp/WeCha
 - `sherlock.md` — Interactive behavioral analysis session (sherlock subcommand)
 - `partners/<slug>/` — Generated profile output (persona.md, interests.md, occasions.md, gifts.md, dating_ideas.md, relationship_guide.md, meta.json)
 - `examples/sarah/` — Fictional demo profile (public, committed to git) — all 7 profile files in English
-- `docs/images/` — SVG banners for README (EN + 繁中), rendered directly by GitHub
+- `docs/images/` — Banner PNGs and feature card PNGs for README (EN + 繁中)
+- `docs/posters/` — HTML poster mockups with shared CSS (`poster-common.css`); tracked in git for community contributions
+- `.claude-plugin/` — Plugin marketplace manifest (`plugin.json`) and catalog (`marketplace.json`)
 - `.claude/settings.json` — Project-level Claude Code settings (committed); includes SessionStart hook for auto-update
 
 ## Privacy
@@ -31,7 +33,12 @@ Claude Code skill that builds partner profiles from chat exports (WhatsApp/WeCha
 - `README.md` (English) and `README_ZH.md` (繁體中文, 書面語 not Cantonese) — keep examples consistent across both
 - Chinese README uses 莎莎 as the example partner name; English uses Sarah
 - Write tool requires reading a file first before overwriting — always Read (even 5 lines) before Write on existing files
-- Symlink: `~/.claude/skills/superpartner` → this directory
+- Primary install: `/plugin marketplace add coffeeandburger72/superpartner` then `/plugin install superpartner@superpartner-marketplace`
+- Legacy install: symlink `~/.claude/skills/superpartner` → this directory
+- Plugin uses `"skills": "./"` in plugin.json — SKILL.md at repo root with `name: superpartner` frontmatter drives discovery
+- Feature card PNGs exported at 2x (2400x600) with transparent background via puppeteer (`omitBackground: true`, body bg set to transparent)
+- Poster CTA pill pattern: `<span class="slash">/</span><span class="cmd">superpartner gifts </span><span class="arg">sarah</span>` — subcommand in cmd span with trailing space, name in arg span
+- Mode chips (`.mode-chip`) use filled gradient bg; skill chips (`.skill-chip`) use outlined gray border — visually distinct
 - Relationship science frameworks (attachment theory, love languages, etc.) are implicit — never reference book titles or author names in any prompt output
 - Love language abbreviations: QT, WA, RG, AS, PT — consistent across gifts and dating builders
 - Attachment terms: Secure / Anxious / Avoidant / Mixed — behavioral descriptions only, no clinical labels
@@ -56,3 +63,7 @@ Claude Code skill that builds partner profiles from chat exports (WhatsApp/WeCha
 - Persona analyzer has 6 layers (0-5), relationship analyzer has 7 dimensions — keep count references consistent when adding new ones
 - GitHub strips `<script>` and some CSS from SVGs in READMEs — banners must be static SVG only; use HTML poster for animated/interactive versions
 - SVG `@import url()` for fonts may not load in GitHub — keep font fallbacks (system sans-serif)
+- `.claude-plugin/` is NOT inside `.claude/` — it's a separate top-level dir, tracked normally (no `git add -f` needed)
+- `docs/posters/` is tracked (not gitignored) — was removed from `.gitignore` for community contributions
+- Marketplace `source` in marketplace.json must start with `./` not `.` — validator rejects bare `.`
+- Puppeteer element screenshots capture bounding box — parent bg must also be transparent for rounded corners to show
