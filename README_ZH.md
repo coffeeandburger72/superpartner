@@ -33,17 +33,20 @@
 
 **需要：** [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
 
-打開 Claude Code，貼上這段：
+### Plugin Marketplace（推薦）
 
-> Install superpartner: run `git clone https://github.com/coffeeandburger72/superpartner.git ~/.claude/skills/superpartner`
+```
+/plugin marketplace add coffeeandburger72/superpartner
+/plugin install superpartner@superpartner-marketplace
+```
 
-或自己執行：
+### 手動安裝
 
 ```bash
 git clone https://github.com/coffeeandburger72/superpartner.git ~/.claude/skills/superpartner
 ```
 
-完成。在任何 Claude Code 對話中輸入 `/superpartner` 即可使用。
+在任何 Claude Code 對話中輸入 `/superpartner` 即可使用。
 
 **自動更新：** 每次啟動 Claude Code 時，superpartner 會自動拉取最新版本，無需手動更新。
 
@@ -245,6 +248,10 @@ superpartner/
 │
 ├── .claude/
 │   └── settings.json                # 自動更新 hook — 每次啟動時拉取最新版本
+│
+├── .claude-plugin/
+│   ├── plugin.json                  # Plugin marketplace 發佈用的插件描述
+│   └── marketplace.json             # Marketplace 目錄
 │
 └── docs/
     ├── images/                      # README 用的橫幅與功能卡片圖片

@@ -33,17 +33,20 @@ You know that feeling — their birthday is next week and you're blanking on gif
 
 **Requirements:** [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
 
-Open Claude Code and paste this:
+### Plugin Marketplace (recommended)
 
-> Install superpartner: run `git clone https://github.com/coffeeandburger72/superpartner.git ~/.claude/skills/superpartner`
+```
+/plugin marketplace add coffeeandburger72/superpartner
+/plugin install superpartner@superpartner-marketplace
+```
 
-Or run it yourself:
+### Manual
 
 ```bash
 git clone https://github.com/coffeeandburger72/superpartner.git ~/.claude/skills/superpartner
 ```
 
-That's it. Then type `/superpartner` in any Claude Code session.
+Then type `/superpartner` in any Claude Code session.
 
 **Auto-updates:** superpartner automatically pulls the latest version every time a Claude Code session starts — no manual updating needed.
 
@@ -247,6 +250,10 @@ superpartner/
 │
 ├── .claude/
 │   └── settings.json                # Auto-update hook — pulls latest on session start
+│
+├── .claude-plugin/
+│   ├── plugin.json                  # Plugin manifest for marketplace distribution
+│   └── marketplace.json             # Marketplace catalog
 │
 └── docs/
     ├── images/                      # Banner & feature card images for README
