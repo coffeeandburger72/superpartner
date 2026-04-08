@@ -17,7 +17,7 @@
 
 Drop a chat export. Get a living profile of your partner — personality, interests, important dates, gift ideas, dating plans, and relationship insights. All evidence-based, all from your real conversations.
 
-[Install](#install) · [How It Works](#how-it-works) · [Modes](#modes) · [Use Cases](#use-cases) · [Commands](#commands) · [Project Structure](#project-structure) · [Privacy](#privacy) · [**繁體中文**](README_ZH.md)
+[Install](#install) · [How It Works](#how-it-works) · [Use Cases](#use-cases) · [Commands](#commands) · [Project Structure](#project-structure) · [Privacy](#privacy) · [**繁體中文**](README_ZH.md)
 
 </div>
 
@@ -100,25 +100,11 @@ Claude:  Found 3,241 messages from Jan 1 to Apr 7 between you and Sarah
 
 ---
 
-## Modes
-
-### Gift Mode
-
-<img alt="Gift Mode card showing evidence-backed gift recommendations" src="docs/images/readme-gift-mode-en.png" width="100%">
-
-Turn vague gift advice into evidence-backed ideas grounded in what they actually said.
-
-### Sherlock Mode `beta`
-
-<img alt="Sherlock Mode card showing relationship red flag analysis" src="docs/images/readme-sherlock-mode-en.png" width="100%">
-
-Sort worrying signals into facts, possibilities, a red flag score, and one calm next step.
-
----
-
 ## Use Cases
 
 ### "Their birthday is in 2 weeks and I have no idea what to get"
+
+<img alt="Gift Mode — evidence-backed gift recommendations" src="docs/images/readme-gift-mode-en.png" width="100%">
 
 ```
 /superpartner gifts sarah
@@ -149,6 +135,8 @@ Your relationship guide — communication patterns, conflict resolution style, e
 ---
 
 ### "Something feels off and I can't tell if I'm overthinking it" `beta`
+
+<img alt="Sherlock Mode — relationship red flag analysis" src="docs/images/readme-sherlock-mode-en.png" width="100%">
 
 ```
 /superpartner sherlock sarah

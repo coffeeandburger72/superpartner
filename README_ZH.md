@@ -17,7 +17,7 @@
 
 匯入一份聊天紀錄，建立你伴侶的完整檔案 — 性格分析、興趣圖譜、重要日子、禮物推薦、約會企劃、關係洞察。所有建議都來自你們的真實對話，有根有據。
 
-[安裝](#安裝) · [運作方式](#運作方式) · [模式](#模式) · [使用情境](#使用情境) · [指令一覽](#指令一覽) · [專案結構](#專案結構) · [隱私保護](#隱私保護) · [**English**](README.md)
+[安裝](#安裝) · [運作方式](#運作方式) · [使用情境](#使用情境) · [指令一覽](#指令一覽) · [專案結構](#專案結構) · [隱私保護](#隱私保護) · [**English**](README.md)
 
 </div>
 
@@ -98,25 +98,11 @@ Claude:  找到 3,241 則訊息，日期從 1 月 1 日到 4 月 7 日，
 
 ---
 
-## 模式
-
-### Gift 模式
-
-<img alt="Gift 模式卡片：根據真實證據推薦禮物" src="docs/images/readme-gift-mode-zh.png" width="100%">
-
-把敷衍的禮物建議，變成有對話證據支持的推薦。
-
-### Sherlock 模式 `beta`
-
-<img alt="Sherlock 模式卡片：關係警訊分析" src="docs/images/readme-sherlock-mode-zh.png" width="100%">
-
-把不安的訊號拆成事實、可能性、警示分數，以及冷靜的下一步。
-
----
-
 ## 使用情境
 
 ### 「對方生日快到了，完全不知道該買什麼」
+
+<img alt="Gift 模式 — 根據真實證據推薦禮物" src="docs/images/readme-gift-mode-zh.png" width="100%">
 
 ```
 /superpartner gifts 莎莎
@@ -147,6 +133,8 @@ Claude:  找到 3,241 則訊息，日期從 1 月 1 日到 4 月 7 日，
 ---
 
 ### 「總覺得哪裡不對勁，但不確定是不是自己想太多」 `beta`
+
+<img alt="Sherlock 模式 — 關係警訊分析" src="docs/images/readme-sherlock-mode-zh.png" width="100%">
 
 ```
 /superpartner sherlock 莎莎
