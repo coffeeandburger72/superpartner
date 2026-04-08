@@ -11,6 +11,7 @@ docs/specs/
 
 # Claude Code local config
 .claude/
+!.claude/settings.json
 
 # Chat exports — raw imported data
 *.zip

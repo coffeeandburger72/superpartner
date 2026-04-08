@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git -C ~/.claude/skills/superpartner pull --ff-only -q 2>/dev/null || true",
+            "timeout": 10,
+            "statusMessage": "Updating superpartner..."
+          }
+        ]
+      }
+    ]
+  }
+}
