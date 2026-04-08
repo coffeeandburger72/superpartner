@@ -1,0 +1,26 @@
+{
+  "name": "Sarah",
+  "slug": "sarah",
+  "created_at": "2026-04-07T15:00:00+08:00",
+  "updated_at": "2026-04-07T15:00:00+08:00",
+  "version": "v1",
+  "relationship": {
+    "stage": "committed",
+    "duration": "1 year",
+    "started": "2025-07-08"
+  },
+  "ldr": false,
+  "sources": [
+    {
+      "platform": "whatsapp",
+      "file": "WhatsApp Chat - Sarah.zip",
+      "date_range": "2026-01-01 to 2026-04-07",
+      "message_count": 3241,
+      "imported_at": "2026-04-07T15:00:00+08:00"
+    }
+  ],
+  "stats": {
+    "photos_analyzed": 6,
+    "stickers_sampled": 12
+  }
+}

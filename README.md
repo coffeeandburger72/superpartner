@@ -1,23 +1,32 @@
 <div align="center">
 
-# superpartner
+<picture>
+  <img alt="superpartner banner" src="docs/images/banner-en.svg" width="100%">
+</picture>
 
-**I finally got her a gift that made her smile.**
+<br><br>
 
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://claude.ai/code)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Claude Code Skill](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet?style=for-the-badge)](https://claude.ai/code)
+[![License: MIT](https://img.shields.io/badge/License-MIT-f5c846?style=for-the-badge)](LICENSE)
+
+**I finally nailed a gift that made them smile.**
+
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](#supported-platforms)
+[![WeChat](https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white)](#supported-platforms)
+[![LINE](https://img.shields.io/badge/LINE-06C755?style=for-the-badge&logo=line&logoColor=white)](#supported-platforms)
+[![100% Local & Private](https://img.shields.io/badge/100%25_Local_%26_Private-16a34a?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik04IDFhMyAzIDAgMCAwLTMgM3YySDRhMiAyIDAgMCAwLTIgMnY0YTIgMiAwIDAgMCAyIDJoOGEyIDIgMCAwIDAgMi0yVjhhMiAyIDAgMCAwLTItMmgtMVY0YTMgMyAwIDAgMC0zLTN6bTAgMmExIDEgMCAwIDEgMSAxdjJINlY0YTEgMSAwIDAgMSAxLTF6Ii8+PC9zdmc+&logoColor=white)](#privacy)
 
 Drop a chat export. Get a living profile of your partner — personality, interests, important dates, gift ideas, dating plans, and relationship insights. All evidence-based, all from your real conversations.
 
-[Install](#install) | [How It Works](#how-it-works) | [Use Cases](#use-cases) | [Commands](#commands) | [Privacy](#privacy) | [**繁體中文**](README_ZH.md)
+[Install](#install) | [How It Works](#how-it-works) | [Use Cases](#use-cases) | [Commands](#commands) | [Project Structure](#project-structure) | [Privacy](#privacy) | [**繁體中文**](README_ZH.md)
 
 </div>
 
 ---
 
-You know that feeling — her birthday is next week and you're blanking on gift ideas. Or you want to plan a date but can't remember if she mentioned wanting to try that new restaurant or the pottery class. Or you're in a long-distance relationship and running out of creative ways to stay connected.
+You know that feeling — their birthday is next week and you're blanking on gift ideas. Or you want to plan a date but can't remember if they mentioned wanting to try that new restaurant or the pottery class. Or you're in a long-distance relationship and running out of creative ways to stay connected.
 
-**superpartner reads your chat history and builds a profile that actually knows her.** Not generic "buy flowers" advice — real suggestions grounded in what she's said, what she's shown interest in, and what makes her light up.
+**superpartner reads your chat history and builds a profile that actually knows your partner.** Not generic "buy flowers" advice — real suggestions grounded in what they've said, what they've shown interest in, and what makes them light up.
 
 ---
 
@@ -46,12 +55,12 @@ You:     /superpartner
 Claude:  What's your partner's name or nickname?
 You:     Sarah
 Claude:  How long have you been together, and what stage?
-You:     Dating 6 months, long-distance
+You:     Committed 1 year
 Claude:  Drop your chat export file.
 You:     ~/Downloads/WhatsApp Chat - Sarah.zip
 
-Claude:  Found 3,241 messages from Jan to Jul between you and Sarah on WhatsApp.
-         Proceeding with analysis.
+Claude:  Found 3,241 messages from Jan 1 to Apr 7 between you and Sarah
+         on WhatsApp. Proceeding with analysis.
 
          ... analyzing personality across 6 dimensions ...
          ... mapping interests from messages and photos ...
@@ -60,31 +69,45 @@ Claude:  Found 3,241 messages from Jan to Jul between you and Sarah on WhatsApp.
 
          Done! Here's what I found:
 
-         Personality: Warm and nurturing, plans ahead, expressive through
-         stickers and voice notes, night owl who opens up after 9pm
+         Personality: INFP — genuinely curious, vents briefly then pivots
+         to comfort activities, shares new discoveries with escalating
+         enthusiasm over weeks
 
-         Top interests: Hiking, Japanese food, studio pottery, indie films
+         Attachment: She needs clear plans and proactive updates to feel
+         secure — confirmed details boost her engagement instantly
 
-         Next occasion: Your 6-month anniversary (Jul 15)
+         Top interests: Ramen, matcha, pottery, film photography,
+         cafe hopping, yoga, Studio Ghibli, Japan travel
 
-         Top gift idea: A pottery workshop voucher for two — she's mentioned
-         wanting to try wheel-throwing 3 times in the last month
+         Next occasion: Anniversary — Jul 8 (1 year)
+
+         Top gift ideas:
+         1. Aesop hand wash set — "i want it so bad but the full set is
+            too expensive 😭" (mentioned twice)
+         2. Pottery class package — her fastest-growing hobby, goes weekly
+         3. Sunset Rollercoaster tickets — "they sound even better live
+            than on the album 🤩"
+
+         Key insight: Her #1 love language is Quality Time — a well-planned
+         afternoon together has more impact than an expensive gift.
 
          Use /superpartner gifts sarah, /superpartner dates sarah,
          or /superpartner ask sarah <question> anytime.
 ```
 
+> [See the full example output →](examples/sarah/)
+
 ---
 
 ## Use Cases
 
-### "Her birthday is in 2 weeks and I have no idea what to get"
+### "Their birthday is in 2 weeks and I have no idea what to get"
 
 ```
 /superpartner gifts sarah
 ```
 
-Regenerates personalized gift ideas based on her interests, wishlist hints from chat, and her love language. Not generic — every suggestion is backed by something she actually said or showed interest in.
+Regenerates personalized gift ideas based on their interests, wishlist hints from chat, and their love language. Not generic — every suggestion is backed by something they actually said or showed interest in.
 
 ---
 
@@ -94,31 +117,31 @@ Regenerates personalized gift ideas based on her interests, wishlist hints from 
 /superpartner dates sarah
 ```
 
-Generates date ideas tailored to what she enjoys, your relationship stage, and your location. Long-distance? It adapts — virtual movie nights, care packages, countdown activities for your next visit.
+Generates date ideas tailored to what they enjoy, your relationship stage, and your location. Long-distance? It adapts — virtual movie nights, care packages, countdown activities for your next visit.
 
 ---
 
-### "She seemed off lately and I'm not sure why"
+### "They seemed off lately and I'm not sure why"
 
 ```
 /superpartner guide sarah
 ```
 
-Your relationship guide — communication patterns, conflict resolution style, emotional needs, and how to navigate difficult conversations based on how she actually communicates. No textbook advice, just patterns from your real dynamic.
+Your relationship guide — communication patterns, conflict resolution style, emotional needs, and how to navigate difficult conversations based on how they actually communicate. No textbook advice, just patterns from your real dynamic.
 
 ---
 
-### "Does she actually like sushi or am I imagining that?"
+### "Do they actually like sushi or am I imagining that?"
 
 ```
-/superpartner ask sarah does she like sushi?
+/superpartner ask sarah do they like sushi?
 ```
 
 Ask anything about your partner. Answers grounded in profile data with evidence — exact quotes, photo references, and behavioral patterns from your conversations.
 
 ---
 
-### "We just had a new trip together and I want to update her profile"
+### "We just had a new trip together and I want to update their profile"
 
 ```
 /superpartner update sarah
@@ -128,7 +151,7 @@ Drop a new chat export. The profile merges intelligently — new data enriches e
 
 ---
 
-### "I don't want to forget her mom's birthday again"
+### "I don't want to forget their mom's birthday again"
 
 After building a profile, superpartner offers to set up reminders for upcoming occasions — birthdays, anniversaries, trips, events. You get a nudge 2 weeks out and 3 days before, with your top gift pick ready.
 
@@ -163,6 +186,84 @@ For each partner, superpartner creates 6 profile files:
 | **relationship_guide.md** | Communication playbook — how to handle tough conversations, emotional needs, what to watch for |
 
 Every finding is evidence-tagged: `(explicit)` from direct statements, `(inferred)` from behavioral patterns, or `(photo)` from image analysis. Profiles are written in the language of your chats.
+
+---
+
+## Project Structure
+
+```
+superpartner/
+├── SKILL.md                         # Router — entry point invoked by /superpartner
+│
+├── parsers/                         # Platform-specific chat export parsers
+│   ├── whatsapp.md                  #   WhatsApp .zip / .txt (US & UK date formats)
+│   ├── wechat.md                    #   WeChat .csv / text exports
+│   └── line.md                      #   LINE .txt chat history
+│
+├── analyzers/                       # Extract structured insights from parsed chat
+│   ├── persona_analyzer.md          #   6-layer personality model
+│   ├── interests_analyzer.md        #   Interest graph from messages & photos
+│   ├── occasions_analyzer.md        #   Date extraction & calendar building
+│   └── relationship_analyzer.md     #   7-dimension relationship dynamics
+│
+├── builders/                        # Generate actionable profile files
+│   ├── persona_builder.md           #   → persona.md
+│   ├── interests_builder.md         #   → interests.md
+│   ├── occasions_builder.md         #   → occasions.md
+│   ├── gifts_builder.md             #   → gifts.md
+│   ├── dating_ideas_builder.md      #   → dating_ideas.md
+│   └── relationship_guide_builder.md#   → relationship_guide.md
+│
+├── merger.md                        # Incremental update logic for new exports
+│
+├── partners/                        # Generated profiles (gitignored)
+│   └── <slug>/                      #   One folder per partner
+│       ├── persona.md
+│       ├── interests.md
+│       ├── occasions.md
+│       ├── gifts.md
+│       ├── dating_ideas.md
+│       ├── relationship_guide.md
+│       └── meta.json                #   Metadata — name, stage, platform, dates
+│
+├── examples/sarah/                  # Fictional demo profile (committed)
+│
+└── docs/
+    ├── images/                      # Banner images for README
+    └── posters/                     # Promotional poster mockups (HTML)
+```
+
+### How the pipeline works
+
+```
+Chat Export (.zip / .txt / .csv)
+        │
+        ▼
+   ┌─────────┐
+   │ Parsers  │  Normalize raw export into structured messages
+   └────┬─────┘
+        │
+        ▼
+  ┌───────────┐
+  │ Analyzers │  Extract persona, interests, occasions, dynamics
+  └─────┬─────┘
+        │
+        ▼
+  ┌───────────┐
+  │ Builders  │  Generate evidence-tagged profile files
+  └─────┬─────┘
+        │
+        ▼
+  partners/<slug>/   ← Your partner's living profile
+```
+
+**Parsers** handle format differences across platforms — WhatsApp locale variants, WeChat CSV quirks, LINE timestamp formats. They output a normalized message stream.
+
+**Analyzers** run in parallel over the message stream. Each analyzer focuses on one domain (personality, interests, dates, or relationship dynamics) and produces structured findings with evidence tags.
+
+**Builders** take analyzer output and write the final profile files. Each builder owns one output file and formats it for readability — section headers stay English, but content is written in the detected chat language.
+
+**Merger** handles incremental updates when you add a new chat export. It diffs new findings against existing profiles, preserves manually curated entries, and triggers builders to regenerate derived files (gifts, dates) with fresh context.
 
 ---
 
