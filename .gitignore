@@ -4,8 +4,10 @@ partners/*/
 # Project instructions — may contain local context
 CLAUDE.md
 
-# Planning and spec docs — contain local context
-docs/
+# Poster mockups, specs, and planning docs — contain local context
+docs/posters/
+docs/plans/
+docs/specs/
 
 # Claude Code local config
 .claude/

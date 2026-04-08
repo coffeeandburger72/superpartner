@@ -1,10 +1,12 @@
 <div align="center">
 
+<h1><img src="https://img.shields.io/badge/superpartner-e11d48?style=for-the-badge&labelColor=e11d48" alt="superpartner" height="36"></h1>
+
 <picture>
-  <img alt="superpartner banner" src="docs/images/banner-en.svg" width="100%">
+  <img alt="superpartner — drop a chat export, get a relationship cheat code" src="docs/images/banner-en.svg" width="100%">
 </picture>
 
-<br><br>
+<br>
 
 [![Claude Code Skill](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet?style=for-the-badge)](https://claude.ai/code)
 [![License: MIT](https://img.shields.io/badge/License-MIT-f5c846?style=for-the-badge)](LICENSE)
