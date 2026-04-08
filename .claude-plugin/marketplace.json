@@ -1,0 +1,22 @@
+{
+  "name": "superpartner-marketplace",
+  "owner": {
+    "name": "coffeeandburger72"
+  },
+  "metadata": {
+    "description": "Partner profile builder — personality, interests, gifts, dates, and relationship insights from chat exports"
+  },
+  "plugins": [
+    {
+      "name": "superpartner",
+      "source": "./",
+      "description": "Build a living profile of your partner from chat history — personality analysis, interest mapping, occasion tracking, gift ideas, dating plans, and relationship insights.",
+      "homepage": "https://github.com/coffeeandburger72/superpartner",
+      "repository": "https://github.com/coffeeandburger72/superpartner",
+      "license": "MIT",
+      "keywords": ["relationship", "partner", "gift", "dating", "whatsapp", "wechat", "line", "chat-analysis"],
+      "category": "lifestyle",
+      "tags": ["relationship", "partner-profile", "gift-ideas", "dating", "chat-export"]
+    }
+  ]
+}
