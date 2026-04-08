@@ -1,25 +1,22 @@
 <div align="center">
-
 <img alt="superpartner banner" src="docs/images/banner-en.png" width="100%">
-
-<br>
-
-<img src="docs/images/brand.svg" alt="superpartner" height="28">
-
-<br><br>
-
-[![Claude Code Skill](https://img.shields.io/badge/Claude_Code-Skill-7c3aed)](https://claude.ai/code)
-[![MIT](https://img.shields.io/badge/License-MIT-f5c846)](LICENSE)
-[![WhatsApp](https://img.shields.io/badge/-WhatsApp-25D366?logo=whatsapp&logoColor=white)](#supported-platforms)
-[![WeChat](https://img.shields.io/badge/-WeChat-07C160?logo=wechat&logoColor=white)](#supported-platforms)
-[![LINE](https://img.shields.io/badge/-LINE-06C755?logo=line&logoColor=white)](#supported-platforms)
-[![100% Private](https://img.shields.io/badge/-100%25_Private-16a34a?logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik04IDFhMyAzIDAgMCAwLTMgM3YySDRhMiAyIDAgMCAwLTIgMnY0YTIgMiAwIDAgMCAyIDJoOGEyIDIgMCAwIDAgMi0yVjhhMiAyIDAgMCAwLTItMmgtMVY0YTMgMyAwIDAgMC0zLTN6bTAgMmExIDEgMCAwIDEgMSAxdjJINlY0YTEgMSAwIDAgMSAxLTF6Ii8+PC9zdmc+&logoColor=white)](#privacy)
+<p>
+  <img src="docs/images/brand.svg" alt="superpartner" height="28">
+</p>
+<p>
+  <a href="https://claude.ai/code"><img src="https://img.shields.io/badge/Claude_Code-Skill-7c3aed" alt="Claude Code Skill"></a>&nbsp;
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-f5c846" alt="MIT"></a>&nbsp;
+  <a href="#supported-platforms"><img src="https://img.shields.io/badge/-WhatsApp-25D366?logo=whatsapp&logoColor=white" alt="WhatsApp"></a>&nbsp;
+  <a href="#supported-platforms"><img src="https://img.shields.io/badge/-WeChat-07C160?logo=wechat&logoColor=white" alt="WeChat"></a>&nbsp;
+  <a href="#supported-platforms"><img src="https://img.shields.io/badge/-LINE-06C755?logo=line&logoColor=white" alt="LINE"></a>&nbsp;
+  <a href="#privacy"><img src="https://img.shields.io/badge/-100%25_Private-16a34a?logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik04IDFhMyAzIDAgMCAwLTMgM3YySDRhMiAyIDAgMCAwLTIgMnY0YTIgMiAwIDAgMCAyIDJoOGEyIDIgMCAwIDAgMi0yVjhhMiAyIDAgMCAwLTItMmgtMVY0YTMgMyAwIDAgMC0zLTN6bTAgMmExIDEgMCAwIDEgMSAxdjJINlY0YTEgMSAwIDAgMSAxLTF6Ii8+PC9zdmc+" alt="100% Private"></a>
+</p>
 
 **I finally nailed a gift that made them smile.**
 
 Drop a chat export. Get a living profile of your partner — personality, interests, important dates, gift ideas, dating plans, and relationship insights. All evidence-based, all from your real conversations.
 
-[Install](#install) | [How It Works](#how-it-works) | [Use Cases](#use-cases) | [Commands](#commands) | [Project Structure](#project-structure) | [Privacy](#privacy) | [**繁體中文**](README_ZH.md)
+[Install](#install) · [How It Works](#how-it-works) · [Use Cases](#use-cases) · [Commands](#commands) · [Project Structure](#project-structure) · [Privacy](#privacy) · [**繁體中文**](README_ZH.md)
 
 </div>
 
