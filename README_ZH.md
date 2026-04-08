@@ -227,9 +227,11 @@ superpartner/
 │
 ├── examples/sarah/                  # 虛構範例檔案（已提交至 git）
 │
+├── .claude/
+│   └── settings.json                # 自動更新 hook — 每次啟動時拉取最新版本
+│
 └── docs/
-    ├── images/                      # README 用的橫幅圖片
-    └── posters/                     # 推廣海報原型（HTML）
+    └── images/                      # README 用的橫幅圖片
 ```
 
 ### 流水線運作方式

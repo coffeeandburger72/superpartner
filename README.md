@@ -229,9 +229,11 @@ superpartner/
 │
 ├── examples/sarah/                  # Fictional demo profile (committed)
 │
+├── .claude/
+│   └── settings.json                # Auto-update hook — pulls latest on session start
+│
 └── docs/
-    ├── images/                      # Banner images for README
-    └── posters/                     # Promotional poster mockups (HTML)
+    └── images/                      # Banner images for README
 ```
 
 ### How the pipeline works
