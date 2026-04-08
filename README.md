@@ -4,7 +4,7 @@
 <p>
   <img src="docs/images/brand.svg" alt="superpartner" height="28">
 </p>
-> *I finally nailed a gift that made them smile.*
+<p><em>"I finally nailed a gift that made them smile."</em></p>
 
 <p>
   <a href="https://claude.ai/code"><img src="https://img.shields.io/badge/Claude_Code-Skill-7c3aed" alt="Claude Code Skill"></a>&nbsp;

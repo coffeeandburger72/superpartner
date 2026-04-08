@@ -4,7 +4,7 @@
 <p>
   <img src="docs/images/brand.svg" alt="superpartner" height="28">
 </p>
-> *我終於送了一份對方真正想要的禮物。*
+<p><em>「我終於送了一份對方真正想要的禮物。」</em></p>
 
 <p>
   <a href="https://claude.ai/code"><img src="https://img.shields.io/badge/Claude_Code-Skill-7c3aed" alt="Claude Code Skill"></a>&nbsp;
